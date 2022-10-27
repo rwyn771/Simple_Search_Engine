@@ -1,0 +1,19 @@
+content:
+- Command-line arguments
+- Exception handling
+- Files
+- Hiding and overriding
+- Polymorphism
+- Boxing and unboxing
+- Introduction to generic programming
+- Interface
+- Generics and Object
+- The Collections Framework overview
+- ArrayList
+- The List interface
+- The Set interface
+- The Map interface
+- Abstract class
+- Strategy
+- Template method
+- Fields and methods in enum

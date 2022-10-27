@@ -1,0 +1,29 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: Boolean[]
+- text: boolean[]
+- text: boolean
+- text: Boolean
+files:
+- name: src/Task.java
+  visible: true
+  text: |
+    // You can experiment here, it won’t be checked
+
+    public class Task {
+      public static void main(String[] args) {
+        // put your code here
+      }
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/3530#comment
+status: Failed
+feedback:
+  message: Answer choices will be shuffled next time.
+  time: Mon, 24 Oct 2022 03:59:14 UTC
+record: -1
+selected_options:
+- 0
+- 3
+local_check: false

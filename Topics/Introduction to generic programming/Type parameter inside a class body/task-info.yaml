@@ -1,0 +1,31 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: The type of a field
+- text: The type of a local variable inside an instance method
+- text: An instance method's argument type
+- text: An instance method's return type
+files:
+- name: src/Task.java
+  visible: true
+  text: |
+    // You can experiment here, it won’t be checked
+
+    public class Task {
+      public static void main(String[] args) {
+        // put your code here
+      }
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/3531#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 24 Oct 2022 03:58:40 UTC
+record: -1
+selected_options:
+- 0
+- 1
+- 2
+- 3
+local_check: false
