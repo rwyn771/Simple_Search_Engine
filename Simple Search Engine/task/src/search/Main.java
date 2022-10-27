@@ -6,6 +6,7 @@ import java.util.*;
 
 public class Main
 {
+    // Main method. Passes the second command line argument to the search method in the search class
     public static void main(String[] args)
     {
         if (args.length == 2)
@@ -21,9 +22,14 @@ public class Main
 //--------------------------------------------------------------------------------------------------------------------------
 class Search
 {
+    //ArrayList representing the data line by line read from the text file.
     private ArrayList<String> data = new ArrayList<>();
+
+    //Hashmap of indexed data from ArrayList for quick search retrieval
     private HashMap<String, List<Integer>> map = new HashMap<>();
 
+    /*reads the input file. adds it to an ArrayList, indexes the contents of
+    the ArrayList to a Hashmap and then presents a menu to the user.*/
     public void search(String inFile)
     {
         File file = new File(inFile);
@@ -47,6 +53,7 @@ class Search
         menu();
     }
 
+    //creates an inverted index utilising data from an ArrayList
     public void index()
     {
         int lineNum = 0;
@@ -67,6 +74,7 @@ class Search
         }
     }
 
+    //creates an instance of the desired search strategy, performs a search, and out puts the result.
     public void find()
     {
         SearchStrategy strategy = determineSearchStrategy();
@@ -92,6 +100,7 @@ class Search
         System.out.println();
     }
 
+    //creates an instance of the desired search strategy
     public SearchStrategy determineSearchStrategy()
     {
         System.out.println("Select a matching strategy: ALL, ANY, NONE");
@@ -118,6 +127,7 @@ class Search
         }
     }
 
+    //prints out put for all the data in the file
     public void print()
     {
         System.out.println("\n=== List of people ===");
@@ -131,6 +141,7 @@ class Search
         System.out.println();
     }
 
+    //main menu for user to interact with when searching
     public void menu()
     {
         while (true)
@@ -160,6 +171,7 @@ class Search
         }
     }
 
+    //exits the program
     public void exit()
     {
         System.out.println("\nBye!");
@@ -169,12 +181,15 @@ class Search
 //-----------------------------------------------------------------------------------------------------------------------
 interface SearchStrategy
 {
+    //abstract method. invokes the concrete method of appropriate subclass.
     SortedSet<Integer> searchStrategy(String query, HashMap<String, List<Integer>> map);
 
 }
 //------------------------------------------------------------------------------------------------------------------------
 class AnyMatchStrategy implements SearchStrategy
 {
+    /*returns a set of search results if any keyword in the users query
+    matches the dataset on file (broad output)*/
     public SortedSet<Integer> searchStrategy(String query, HashMap<String, List<Integer>> map)
     {
         String[] queryArray = query.toLowerCase().split("\\s");
@@ -194,6 +209,7 @@ class AnyMatchStrategy implements SearchStrategy
 //------------------------------------------------------------------------------------------------------------------------
 class AllMatchStrategy implements SearchStrategy
 {
+    //returns results that are an exact match between query and dataset (specific output)
     public SortedSet<Integer> searchStrategy(String query, HashMap<String, List<Integer>> map)
     {
         SortedSet<Integer> set = new TreeSet<>();
@@ -217,6 +233,7 @@ class AllMatchStrategy implements SearchStrategy
 
 class NoneMatchStrategy implements SearchStrategy
 {
+    //returns all results that dont match the search query. Why would anyone want this feature? Idk man
     public SortedSet<Integer> searchStrategy(String query, HashMap<String, List<Integer>> map)
     {
         String[] queryArray = query.toLowerCase().split("\\s");
@@ -241,6 +258,7 @@ class NoneMatchStrategy implements SearchStrategy
 //-------------------------------------------------------------------------------------------------------------------------
 class UserInput
 {
+    //gets string input from the user and returns the string
     public static String getStringInput()
     {
         String msg;
@@ -261,6 +279,7 @@ class UserInput
         return msg;
     }
 
+    //gets integer input from the user and returns an integer
     public int getIntegerInput()
     {
         int input;
